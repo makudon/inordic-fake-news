@@ -1,8 +1,9 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 // Импортируем компоненты которые будут отображаться на разных страницах
-import HelloWorld from "../../components/HelloWorld.vue"
+import HelloWorld from "../../components/HelloWorld.vue";
 import NewsList from "../../components/NewsList.vue";
+import NewsItem from "../../components/NewsItem.vue";
 
 //Делаем конфигурацию, которая показывает определенный компонент при переходе по определенному пути
 //Например при переходе на простой / отображает компонент HelloWorld
@@ -16,6 +17,12 @@ const routes = [
         path: "/news",
         name: "News",
         component: NewsList
+    },
+    {
+        //Параметры указанные с : впереди, являются динамическими
+        path: "/news/:id",
+        name: "NewsItem",
+        component: NewsItem
     }
 ]
 
