@@ -1,6 +1,9 @@
 <template>
+  <img v-bind:src="data?.image" v-bind:alt="data?.title">
   <h1>{{data?.title}}</h1>
-  <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg">
+  <button>
+    <router-link to="/news" tag="button">Обратно</router-link>
+  </button>
 </template>
 
 <script>
@@ -21,7 +24,7 @@ import axios from "axios"
     //Получаем параметр id из URL
     const ID = router.currentRoute.value.params.id
     console.log("axios", axios)
-    axios.get("https://fakestoreapi.com/products/1")
+    axios.get(`https://fakestoreapi.com/products/${ID}`)
         .then((response => {
           //Блок then срабатывает
           console.log(response);
@@ -48,5 +51,18 @@ import axios from "axios"
 </script>
 
 <style scoped>
+img {
+  max-width: 400px;
+}
 
+button {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+button a {
+  color: white;
+  font-size: 30px;
+}
 </style>
