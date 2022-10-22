@@ -1,9 +1,13 @@
 <template>
+  <loader v-if="!data"></loader>
+  <section v-if="data">
   <img v-bind:src="data?.image" v-bind:alt="data?.title">
   <h1>{{data?.title}}</h1>
   <button>
     <router-link to="/news" tag="button">Обратно</router-link>
   </button>
+  </section>
+  <comments :id="data?.id"></comments>
 </template>
 
 <script>
@@ -13,6 +17,8 @@
 //Усложнение - переход из NewsList в NewsItem
 import { useRouter, useRoute } from "vue-router"
 import axios from "axios"
+import Loader from "./Loader.vue";
+import Comments from "./Comments.vue";
   export default {
     //В переменной $route доступно поле params со всеми параметрами из строки
   beforeMount: function (el) {
@@ -44,9 +50,12 @@ import axios from "axios"
   },
   setup() {
     return {
-
     }
-  }
+  },
+    components: {
+      'loader': Loader,
+      'comments': Comments
+    }
 }
 </script>
 

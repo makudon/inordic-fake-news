@@ -1,8 +1,8 @@
 <template>
-  <loader></loader>
+  <loader v-if="list.length == 0"></loader>
   <section>
-    <h1>{{title}}</h1>
-    <ul class="shopping" >
+    <h1 v-if="list.length !== 0">{{title}}</h1>
+    <ul class="shopping">
       <li class="shopping__item" v-bind:key="item.id" v-for="item in list">
         <router-link v-bind:to="'/news/' + item.id">
           <img class="shopping__img" v-bind:src="item.image" v-bind:alt="item.title"/>

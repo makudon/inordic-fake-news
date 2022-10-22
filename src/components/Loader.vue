@@ -14,12 +14,14 @@ export default {
 
 .loading {
   position: fixed;
-  width: 100px;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  left: 0;
+  top: 0;
+
 }
 
 .loading__text {
@@ -27,6 +29,7 @@ export default {
   background: black;
   padding: 20px;
   border-radius: 20px;
+  box-shadow: 5px 5px 5px 5px red;
 }
 
 </style>
